@@ -446,6 +446,7 @@ export interface ApiCommentComment extends Struct.CollectionTypeSchema {
 export interface ApiDomainDomain extends Struct.CollectionTypeSchema {
   collectionName: 'domains';
   info: {
+    description: '';
     displayName: 'domain';
     pluralName: 'domains';
     singularName: 'domain';
@@ -474,7 +475,6 @@ export interface ApiDomainDomain extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     posts: Schema.Attribute.Relation<'manyToMany', 'api::post.post'>;
     publishedAt: Schema.Attribute.DateTime;
-    tags: Schema.Attribute.Relation<'manyToMany', 'api::tag.tag'>;
     updated_date: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -496,6 +496,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
   attributes: {
     admin_user: Schema.Attribute.Relation<'oneToOne', 'admin::user'>;
     category: Schema.Attribute.Relation<'oneToOne', 'api::category.category'>;
+    comments: Schema.Attribute.Relation<'oneToMany', 'api::comment.comment'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -511,6 +512,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     post_title: Schema.Attribute.Text & Schema.Attribute.Required;
     published_date: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
+    tags: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -533,7 +535,6 @@ export interface ApiTagTag extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    domains: Schema.Attribute.Relation<'manyToMany', 'api::domain.domain'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'> &
       Schema.Attribute.Private;

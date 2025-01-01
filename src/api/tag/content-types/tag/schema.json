@@ -30,12 +30,6 @@
       "unique": true,
       "required": true,
       "type": "integer"
-    },
-    "domains": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::domain.domain",
-      "inversedBy": "tags"
     }
   }
 }

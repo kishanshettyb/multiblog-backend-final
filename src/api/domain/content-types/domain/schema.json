@@ -4,7 +4,8 @@
   "info": {
     "singularName": "domain",
     "pluralName": "domains",
-    "displayName": "domain"
+    "displayName": "domain",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,12 +25,6 @@
     },
     "updated_date": {
       "type": "datetime"
-    },
-    "tags": {
-      "type": "relation",
-      "relation": "manyToMany",
-      "target": "api::tag.tag",
-      "mappedBy": "domains"
     },
     "categories": {
       "type": "relation",
