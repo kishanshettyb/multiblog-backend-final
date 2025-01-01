@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "tags",
+  "collectionName": "categories",
   "info": {
-    "singularName": "tag",
-    "pluralName": "tags",
-    "displayName": "tag",
+    "singularName": "category",
+    "pluralName": "categories",
+    "displayName": "category",
     "description": ""
   },
   "options": {
@@ -12,30 +12,23 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "tag_name": {
+    "category_name": {
       "type": "string",
       "required": true,
       "unique": true
     },
-    "tag_slug": {
+    "category_desc": {
+      "type": "text"
+    },
+    "category_slug": {
       "type": "text",
       "required": true
-    },
-    "created_date": {
-      "type": "datetime",
-      "required": true
-    },
-    "tag_id": {
-      "private": true,
-      "unique": true,
-      "required": true,
-      "type": "integer"
     },
     "domains": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::domain.domain",
-      "inversedBy": "tags"
+      "inversedBy": "categories"
     }
   }
 }
