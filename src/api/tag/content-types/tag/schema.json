@@ -24,12 +24,6 @@
     "created_date": {
       "type": "datetime",
       "required": true
-    },
-    "tag_id": {
-      "private": true,
-      "unique": true,
-      "required": true,
-      "type": "integer"
     }
   }
 }

@@ -20,12 +20,6 @@
     "domain_desc": {
       "type": "text"
     },
-    "created_date": {
-      "type": "datetime"
-    },
-    "updated_date": {
-      "type": "datetime"
-    },
     "categories": {
       "type": "relation",
       "relation": "manyToMany",
