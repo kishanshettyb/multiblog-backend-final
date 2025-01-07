@@ -18,7 +18,8 @@
     },
     "post_slug": {
       "type": "text",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "published_date": {
       "type": "datetime"

@@ -31,6 +31,25 @@
       "relation": "manyToMany",
       "target": "api::post.post",
       "mappedBy": "domains"
+    },
+    "meta_description": {
+      "type": "text",
+      "required": true
+    },
+    "meta_keywords": {
+      "type": "text",
+      "required": true
+    },
+    "logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

@@ -19,11 +19,14 @@
     },
     "tag_slug": {
       "type": "text",
-      "required": true
+      "required": true,
+      "unique": true
     },
-    "created_date": {
-      "type": "datetime",
-      "required": true
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "tags"
     }
   }
 }

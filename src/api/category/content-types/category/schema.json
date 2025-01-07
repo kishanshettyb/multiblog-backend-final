@@ -22,13 +22,20 @@
     },
     "category_slug": {
       "type": "text",
-      "required": true
+      "required": true,
+      "unique": true
     },
     "domains": {
       "type": "relation",
       "relation": "manyToMany",
       "target": "api::domain.domain",
       "inversedBy": "categories"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag",
+      "mappedBy": "category"
     }
   }
 }
