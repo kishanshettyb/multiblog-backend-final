@@ -4,7 +4,8 @@
   "info": {
     "singularName": "comment",
     "pluralName": "comments",
-    "displayName": "comment"
+    "displayName": "comment",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -25,13 +26,6 @@
       "required": true,
       "default": "pending"
     },
-    "created_date": {
-      "type": "datetime"
-    },
-    "parent_comment_id": {
-      "type": "biginteger",
-      "required": false
-    },
     "users_permissions_user": {
       "type": "relation",
       "relation": "oneToOne",
@@ -41,6 +35,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::post.post"
+    },
+    "parent_comment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::comment.comment"
     }
   }
 }

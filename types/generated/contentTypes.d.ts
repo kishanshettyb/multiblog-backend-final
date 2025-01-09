@@ -409,6 +409,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiCommentComment extends Struct.CollectionTypeSchema {
   collectionName: 'comments';
   info: {
+    description: '';
     displayName: 'comment';
     pluralName: 'comments';
     singularName: 'comment';
@@ -423,7 +424,6 @@ export interface ApiCommentComment extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'pending'>;
     content: Schema.Attribute.Text & Schema.Attribute.Required;
-    created_date: Schema.Attribute.DateTime;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -433,7 +433,10 @@ export interface ApiCommentComment extends Struct.CollectionTypeSchema {
       'api::comment.comment'
     > &
       Schema.Attribute.Private;
-    parent_comment_id: Schema.Attribute.BigInteger;
+    parent_comment: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::comment.comment'
+    >;
     post: Schema.Attribute.Relation<'oneToOne', 'api::post.post'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -517,7 +520,6 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'draft'>;
     post_title: Schema.Attribute.Text & Schema.Attribute.Required;
-    published_date: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
     tags: Schema.Attribute.Relation<'oneToMany', 'api::tag.tag'>;
     updatedAt: Schema.Attribute.DateTime;
